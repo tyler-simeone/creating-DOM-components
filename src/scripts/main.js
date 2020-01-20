@@ -73,18 +73,24 @@ const students = [
     }
 ]
 
-const createStudentComponent = () => {
+const createStudentComponent = (name, subject, info) => {
     return `
         <div class="student">
-            <h1>Alejandro Font</h1>
-            <section>Day cohort 27</section>
-            <aside>
-                Wore pants that were too short for his legs.
-                Was an incredible friend to his teammates.
-            </aside>
+            <h1>${name}</h1>
+            <section>${subject}</section>
+            <aside>${info}</aside>
         </div>
-    `;
+    `
 }
 
 const studentContainer = document.querySelector("#container");
-studentContainer.innerHTML = createStudentComponent();
+
+for (let i = 0; i < students.length; i++) {
+    const student = students[i]
+    studentContainer.innerHTML += createStudentComponent(
+        student.name,
+        student.subject,
+        student.info
+    )
+}
+
