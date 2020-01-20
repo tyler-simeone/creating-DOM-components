@@ -73,12 +73,12 @@ const students = [
     }
 ]
 
-const createStudentComponent = (name, subject, info, score) => {
+const createStudentComponent = (obj) => {
     return `
         <div class="student">
-            <h1 class="xx-large ${score < 60 ? 'failing' : 'passing'}">${name}</h1>
-            <section class="bordered dashed section--padded">${subject}</section>
-            <aside class="pushRight">${info}</aside>
+            <h1 class="xx-large ${obj.score < 60 ? 'failing' : 'passing'}">${obj.name}</h1>
+            <section class="bordered dashed section--padded">${obj.subject}</section>
+            <aside class="pushRight">${obj.info}</aside>
         </div>
     `
 }
@@ -87,10 +87,5 @@ const studentContainer = document.querySelector("#container");
 
 for (let i = 0; i < students.length; i++) {
     const student = students[i]
-    studentContainer.innerHTML += createStudentComponent(
-        student.name,
-        student.subject,
-        student.info,
-        student.score
-    )
+    studentContainer.innerHTML += createStudentComponent(student);
 }
