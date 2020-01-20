@@ -75,10 +75,10 @@ const students = [
 
 const createStudentComponent = (name, subject, info, score) => {
     return `
-        <div class="student ${score < 60 ? 'failing' : ''}">
-            <h1>${name}</h1>
-            <section>${subject}</section>
-            <aside>${info}</aside>
+        <div class="student">
+            <h1 class="xx-large ${score < 60 ? 'failing' : 'passing'}">${name}</h1>
+            <section class="bordered dashed section--padded">${subject}</section>
+            <aside class="pushRight">${info}</aside>
         </div>
     `
 }
@@ -94,4 +94,3 @@ for (let i = 0; i < students.length; i++) {
         student.score
     )
 }
-
