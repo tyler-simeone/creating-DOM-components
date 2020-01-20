@@ -76,11 +76,23 @@ const students = [
 const createStudentComponent = (obj) => {
     return `
         <div class="student">
-            <h1 class="xx-large ${obj.score < 60 ? 'failing' : 'passing'}">${obj.name}</h1>
-            <section class="bordered dashed section--padded">${obj.subject}</section>
-            <aside class="pushRight">${obj.info}</aside>
+            ${h1(obj)}
+            ${section(obj.subject)}
+            ${aside(obj.info)}
         </div>
     `
+}
+
+const h1 = (obj) => {
+    return `<h1 class="xx-large ${obj.score < 60 ? 'failing' : 'passing'}">${obj.name}</h1>`
+}
+
+const section = (obj) => {
+    return `<section class="bordered dashed section--padded">${obj.subject}</section>`
+}
+
+const aside = (obj) => {
+    return `<aside class="pushRight">${obj.info}</aside>`
 }
 
 const studentContainer = document.querySelector("#container");
